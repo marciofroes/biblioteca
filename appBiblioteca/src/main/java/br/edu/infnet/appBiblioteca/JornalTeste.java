@@ -1,4 +1,4 @@
-package br.edu.infnet.model.test;
+package br.edu.infnet.appBiblioteca;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -21,22 +21,22 @@ public class JornalTeste implements ApplicationRunner {
 		j1.setEdicao("Fevereiro");
 		j1.setTema("Campeonato Brasileiro");
 		
-		System.out.println(j1);
-		
+		new AppBiblioteca("Inclusao do Jornal de Fevereiro").realtorio(j1);
 		
 		Jornal j2 = new Jornal("O Futebol", "Fisico", 10);
 		j2.setEdicaoEspecial(true);
 		j2.setEdicao("Março");
 		j2.setTema("Campeonato Espanhol");;
 		
-		System.out.println(j2);
-		
+		new AppBiblioteca("Inclusao do Jornal de Março").realtorio(j2);
 
 		Jornal j3 = new Jornal("O Futebol", "Fisico", 10);
 		j3.setEdicaoEspecial(true);
 		j3.setEdicao("Abril");
 		j3.setTema("Copa do Mundo");		
-		System.out.println(j3);
+		
+		new AppBiblioteca("Inclusao do Jornal Copa do Mundo").realtorio(j2);
+
 	}
 
 }

@@ -1,4 +1,4 @@
-package br.edu.infnet.model.test;
+package br.edu.infnet.appBiblioteca;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -21,15 +21,22 @@ public class LivroTeste implements ApplicationRunner {
 		l1.setDisponivel(true);
 		System.out.println(l1);
 		
+		 new AppBiblioteca("Inclusao Livro Java Efetivo").realtorio(l1);
+		
 		Livro l2 = new Livro("Codigo Limpo", "Fisico", 20);
 		l2.setAutor("Martin");
 		l2.setDisponivel(true);
 		System.out.println(l2);
 		
+		new AppBiblioteca("Inclusao livro Codigo Limpo").realtorio(l2);
+		
 		Livro l3 = new Livro("Java-OO", "Fisico", 120);
 		l3.setAutor("Prof. Elberth");
 		l3.setDisponivel(true);
 		System.out.println(l3);
+		
+		 new AppBiblioteca("Inclusao livro Java-OO").realtorio(l2);
+		
 		
 	}
 

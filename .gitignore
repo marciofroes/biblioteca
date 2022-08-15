@@ -1,0 +1,9 @@
+/.metadata/
+appBiblioteca/.metadata/.lock
+appBiblioteca/.metadata/.log
+*.version
+*.tree
+appBiblioteca/.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location
+appBiblioteca/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache
+appBiblioteca/.metadata/.plugins/org.eclipse.jdt.core/javaLikeNames.txt
+appBiblioteca/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache

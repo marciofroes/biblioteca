@@ -1,4 +1,4 @@
-package br.edu.infnet.model.test;
+package br.edu.infnet.appBiblioteca;
 
 import java.util.Date;
 
@@ -24,7 +24,7 @@ public class RevistaTeste implements ApplicationRunner {
 		r1.setDataPublicacao(new  Date());
 		r1.setDisponivel(true);
 		
-		System.out.println(r1);
+		new AppBiblioteca("Inclusao da revsita Fofocando").realtorio(r1);
 		
 		Revista r2 = new Revista("Quatro Rodas", "Fisica", 14);
 		r2.setTitulo("Melhores 4x4");
@@ -32,7 +32,7 @@ public class RevistaTeste implements ApplicationRunner {
 		r2.setDataPublicacao(new  Date());
 		r2.setDisponivel(true);
 		
-		System.out.println(r2);
+		new AppBiblioteca("Inclusao da revsita Quatro Rodas").realtorio(r2);
 		
 		Revista r3 = new Revista("A Política", "Fisica", 11);
 		r3.setTitulo("Eleições 2022");
@@ -40,7 +40,7 @@ public class RevistaTeste implements ApplicationRunner {
 		r3.setDataPublicacao(new  Date());
 		r3.setDisponivel(true);
 		
-		System.out.println(r3);
+		new AppBiblioteca("Inclusao da revsita A Política").realtorio(r3);
 	}
 
 }

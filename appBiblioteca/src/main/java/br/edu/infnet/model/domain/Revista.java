@@ -1,17 +1,22 @@
 package br.edu.infnet.model.domain;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class Revista extends Produto {
 
 	private String titulo;
-	private String edicao;
+	private String edicaoEspecial;
 	private Date dataPublicacao;
 	private boolean disponivel;
 	
 
-	public Revista(String nome, String formato, BigDecimal valor) {
+	@Override
+	public float calcularEmprestimo() {
+		float valorEdicao = 10;
+		return  valor+valorEdicao ;
+	}
+	
+	public Revista(String nome, String formato, float valor) {
 		super(nome, formato, valor);
 	}
 	
@@ -22,10 +27,10 @@ public class Revista extends Produto {
 		this.titulo = titulo;
 	}
 	public String getEdicao() {
-		return edicao;
+		return edicaoEspecial;
 	}
 	public void setEdicao(String edicao) {
-		this.edicao = edicao;
+		this.edicaoEspecial = edicao;
 	}
 	public Date getDataPublicacao() {
 		return dataPublicacao;
@@ -40,5 +45,16 @@ public class Revista extends Produto {
 		this.disponivel = disponivel;
 	}
 	
+
+	@Override
+	public String toString() {
+		return edicaoEspecial + ";" +  titulo + ";" + disponivel + super.toString();
+	}
 	
+	@Override
+	public void impressao() {
+		System.out.println("#Revista");
+		System.out.println(this);
+		
+	}
 }

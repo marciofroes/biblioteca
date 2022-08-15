@@ -17,4 +17,10 @@ public class Responsavel {
 		return nome + ";" + cpf + ";" + email;
 	}
 	
+	public void impressao() {
+		System.out.println("#Responsavel");
+		System.out.println(this);
+		
+	}
+	
 }

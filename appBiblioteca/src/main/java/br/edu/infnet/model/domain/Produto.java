@@ -1,20 +1,23 @@
 package br.edu.infnet.model.domain;
 
-import java.math.BigDecimal;
-
-public class Produto {
+public abstract class Produto {
 
 	public String nome;
 	public String formato;
-	public BigDecimal valor;
+	public float valor;
 	
-	public Produto(String nome, String formato, BigDecimal valor) {
+	public Produto(String nome, String formato, float valor) {
 		super();
 		this.nome = nome;
 		this.formato = formato;
 		this.valor = valor;
 	}
 	
+	public float calcularEmprestimo() {
+		return valor * 2;
+	}
+	
+	public abstract void impressao();
 	
 	@Override
 	public String toString() {
