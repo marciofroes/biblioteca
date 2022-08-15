@@ -1,6 +1,8 @@
 package br.edu.infnet.model.domain;
 
-public class Responsavel {
+import br.edu.infnet.appBiblioteca.interfaces.IPrinter;
+
+public class Responsavel implements IPrinter {
 
 	public String nome;
 	public String cpf;
@@ -16,11 +18,12 @@ public class Responsavel {
 	public String toString() {
 		return nome + ";" + cpf + ";" + email;
 	}
-	
+
+	@Override
 	public void impressao() {
 		System.out.println("#Responsavel");
 		System.out.println(this);
-		
 	}
 	
+
 }

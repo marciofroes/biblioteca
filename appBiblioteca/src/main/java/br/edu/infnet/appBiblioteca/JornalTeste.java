@@ -5,6 +5,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.model.domain.Jornal;
+import br.edu.infnet.model.test.AppImpressao;
 
 
 @Component
@@ -21,21 +22,27 @@ public class JornalTeste implements ApplicationRunner {
 		j1.setEdicao("Fevereiro");
 		j1.setTema("Campeonato Brasileiro");
 		
-		new AppBiblioteca("Inclusao do Jornal de Fevereiro").realtorio(j1);
+		AppImpressao.relatorio("Inclusao do Jornal de Fevereiro",j1);
 		
 		Jornal j2 = new Jornal("O Futebol", "Fisico", 10);
 		j2.setEdicaoEspecial(true);
 		j2.setEdicao("Março");
-		j2.setTema("Campeonato Espanhol");;
+		j2.setTema("Campeonato Espanhol");
+		j2.setNome("Jornal dos Esportes");
+		j2.setValor(5);
+		j2.setFormato("Fisico");
 		
-		new AppBiblioteca("Inclusao do Jornal de Março").realtorio(j2);
-
+		AppImpressao.relatorio("Inclusao do Jornal de Março",j2);
+		
 		Jornal j3 = new Jornal("O Futebol", "Fisico", 10);
 		j3.setEdicaoEspecial(true);
 		j3.setEdicao("Abril");
-		j3.setTema("Copa do Mundo");		
+		j3.setTema("Copa do Mundo");	
+		j3.setNome("Jornal dos Esportes");
+		j3.setValor(5);
+		j3.setFormato("Fisico");
 		
-		new AppBiblioteca("Inclusao do Jornal Copa do Mundo").realtorio(j2);
+		AppImpressao.relatorio("Inclusao do Jornal de Abril",j3);
 
 	}
 

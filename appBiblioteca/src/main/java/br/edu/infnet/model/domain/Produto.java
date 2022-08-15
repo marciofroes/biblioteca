@@ -1,10 +1,12 @@
 package br.edu.infnet.model.domain;
 
-public abstract class Produto {
+import br.edu.infnet.appBiblioteca.interfaces.IPrinter;
 
-	public String nome;
-	public String formato;
-	public float valor;
+public abstract class Produto implements IPrinter {
+
+	private String nome;
+	private String formato;
+	private float valor;
 	
 	public Produto(String nome, String formato, float valor) {
 		super();
@@ -13,15 +15,50 @@ public abstract class Produto {
 		this.valor = valor;
 	}
 	
-	public float calcularEmprestimo() {
-		return valor * 2;
-	}
 	
-	public abstract void impressao();
+	
+	public abstract float calcularEmprestimo();
+
 	
 	@Override
 	public String toString() {
 		return nome + ";" + formato + ";" + valor;
 	}
 	
+
+	public String getNome() {
+		return nome;
+	}
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+	public String getFormato() {
+		return formato;
+	}
+
+
+
+	public void setFormato(String formato) {
+		this.formato = formato;
+	}
+
+
+
+	public float getValor() {
+		return valor;
+	}
+
+
+
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+
+
 }

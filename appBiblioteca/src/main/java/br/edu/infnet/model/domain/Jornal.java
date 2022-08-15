@@ -10,10 +10,27 @@ public class Jornal extends Produto {
 	public float calcularEmprestimo() {
 		
 		float valorEdicao = edicaoEspecial ? 22 : 2;   
-		return super.calcularEmprestimo() + valorEdicao;
+		return getValor() + valorEdicao;
 	}
 	
 
+	@Override
+	public String toString() {
+		return edicaoEspecial + ";" + edicao + ";" + tema + ";" + super.toString();
+	}
+
+	
+	@Override
+	public void impressao() {
+		System.out.println("#Jornal");
+		System.out.println(this);
+		
+	}
+
+
+	public Jornal(String nome, String formato, float valor) {
+		super(nome, formato, valor);
+	}
 
 	public String getEdicao() {
 		return edicao;
@@ -35,15 +52,6 @@ public class Jornal extends Produto {
 	}
 
 	
-	public Jornal(String nome, String formato, float valor) {
-		super(nome, formato, valor);
-	}
-
-	
-	@Override
-	public String toString() {
-		return edicaoEspecial + ";" + edicao + ";" + tema + ";" + super.toString();
-	}
 
 	public boolean isEdicaoEspecial() {
 		return edicaoEspecial;
@@ -53,11 +61,4 @@ public class Jornal extends Produto {
 		this.edicaoEspecial = edicaoEspecial;
 	}
 	
-	@Override
-	public void impressao() {
-		System.out.println("#Jornal");
-		System.out.println(this);
-		
-	}
-
 }

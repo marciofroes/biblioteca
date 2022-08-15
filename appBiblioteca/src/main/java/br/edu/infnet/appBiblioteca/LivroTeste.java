@@ -3,7 +3,7 @@ package br.edu.infnet.appBiblioteca;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-
+import br.edu.infnet.model.test.AppImpressao;
 import br.edu.infnet.model.domain.Livro;
 
 
@@ -21,21 +21,21 @@ public class LivroTeste implements ApplicationRunner {
 		l1.setDisponivel(true);
 		System.out.println(l1);
 		
-		 new AppBiblioteca("Inclusao Livro Java Efetivo").realtorio(l1);
+		 AppImpressao.relatorio("Inclusao Livro Java Efetivo",l1);
 		
 		Livro l2 = new Livro("Codigo Limpo", "Fisico", 20);
 		l2.setAutor("Martin");
 		l2.setDisponivel(true);
 		System.out.println(l2);
 		
-		new AppBiblioteca("Inclusao livro Codigo Limpo").realtorio(l2);
+		 AppImpressao.relatorio("Inclusao livro Codigo Limpo",l2);
 		
 		Livro l3 = new Livro("Java-OO", "Fisico", 120);
 		l3.setAutor("Prof. Elberth");
 		l3.setDisponivel(true);
 		System.out.println(l3);
 		
-		 new AppBiblioteca("Inclusao livro Java-OO").realtorio(l2);
+		 AppImpressao.relatorio("Inclusao livro Java-OO",l2);
 		
 		
 	}

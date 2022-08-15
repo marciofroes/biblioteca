@@ -13,7 +13,7 @@ public class Revista extends Produto {
 	@Override
 	public float calcularEmprestimo() {
 		float valorEdicao = 10;
-		return  valor+valorEdicao ;
+		return  getValor() + valorEdicao ;
 	}
 	
 	public Revista(String nome, String formato, float valor) {

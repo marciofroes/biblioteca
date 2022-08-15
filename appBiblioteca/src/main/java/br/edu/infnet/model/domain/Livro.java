@@ -43,4 +43,10 @@ public class Livro extends Produto{
 		System.out.println(this);
 		
 	}
+
+	@Override
+	public float calcularEmprestimo() {
+		
+		return getValor() + 2;
+	}
 }
