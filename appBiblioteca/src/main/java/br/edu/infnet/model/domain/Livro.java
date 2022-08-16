@@ -8,8 +8,8 @@ public class Livro extends Produto{
 	private boolean disponivel;
 	
 	
-	public Livro(String nome, String formato, float valor) {
-		super(nome, formato, valor);
+	public Livro(String nome, String formato, float valor, int codigo) {
+		super(nome, formato, valor, codigo);
 	}
 	
 	public String getAutor() {

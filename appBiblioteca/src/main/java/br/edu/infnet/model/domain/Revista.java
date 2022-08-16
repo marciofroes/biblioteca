@@ -16,8 +16,8 @@ public class Revista extends Produto {
 		return  getValor() + valorEdicao ;
 	}
 	
-	public Revista(String nome, String formato, float valor) {
-		super(nome, formato, valor);
+	public Revista(String nome, String formato, float valor,int codigo) {
+		super(nome, formato, valor,codigo);
 	}
 	
 	public String getTitulo() {
@@ -48,7 +48,7 @@ public class Revista extends Produto {
 
 	@Override
 	public String toString() {
-		return edicaoEspecial + ";" +  titulo + ";" + disponivel + super.toString();
+		return edicaoEspecial + " ; " +  titulo + " ; " + disponivel + super.toString();
 	}
 	
 	@Override

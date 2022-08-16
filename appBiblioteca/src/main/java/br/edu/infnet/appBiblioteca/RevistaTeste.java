@@ -19,7 +19,7 @@ public class RevistaTeste implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("#Revista");
 		
-		Revista r1 = new Revista("Fofacando", "Digital",10);
+		Revista r1 = new Revista("Fofacando", "Digital",10,1111);
 		r1.setTitulo("Artistas no flagra");
 		r1.setEdicao("Janeiro");
 		r1.setDataPublicacao(new  Date());
@@ -27,7 +27,7 @@ public class RevistaTeste implements ApplicationRunner {
 		
 		 AppImpressao.relatorio("Inclusao da revsita Fofocando",r1);
 		
-		Revista r2 = new Revista("Quatro Rodas", "Fisica", 14);
+		Revista r2 = new Revista("Quatro Rodas", "Fisica", 14,2222);
 		r2.setTitulo("Melhores 4x4");
 		r2.setEdicao("Abril");
 		r2.setDataPublicacao(new  Date());
@@ -35,7 +35,7 @@ public class RevistaTeste implements ApplicationRunner {
 		
 		 AppImpressao.relatorio("Inclusao da revsita Quatro Rodas",r2);
 		
-		Revista r3 = new Revista("A Política", "Fisica", 11);
+		Revista r3 = new Revista("A Política", "Fisica", 11,33333);
 		r3.setTitulo("Eleições 2022");
 		r3.setEdicao("Agosto");
 		r3.setDataPublicacao(new  Date());

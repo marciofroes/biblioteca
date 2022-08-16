@@ -17,14 +17,14 @@ public class JornalTeste implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("#Jornal");
 		
-		Jornal j1 = new Jornal("O Futebol", "Fisico", 10);
+		Jornal j1 = new Jornal("O Futebol", "Fisico", 10,111);
 		j1.setEdicaoEspecial(true); 
 		j1.setEdicao("Fevereiro");
 		j1.setTema("Campeonato Brasileiro");
 		
 		AppImpressao.relatorio("Inclusao do Jornal de Fevereiro",j1);
 		
-		Jornal j2 = new Jornal("O Futebol", "Fisico", 10);
+		Jornal j2 = new Jornal("O Futebol", "Fisico", 10,222);
 		j2.setEdicaoEspecial(true);
 		j2.setEdicao("Março");
 		j2.setTema("Campeonato Espanhol");
@@ -34,7 +34,7 @@ public class JornalTeste implements ApplicationRunner {
 		
 		AppImpressao.relatorio("Inclusao do Jornal de Março",j2);
 		
-		Jornal j3 = new Jornal("O Futebol", "Fisico", 10);
+		Jornal j3 = new Jornal("O Futebol", "Fisico", 10,333);
 		j3.setEdicaoEspecial(true);
 		j3.setEdicao("Abril");
 		j3.setTema("Copa do Mundo");	

@@ -1,31 +1,43 @@
 package br.edu.infnet.model.domain;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import br.edu.infnet.appBiblioteca.interfaces.IPrinter;
 
-public class Biblioteca implements IPrinter{
-	
+public class Biblioteca implements IPrinter {
+
 	private String descricao;
 	private LocalDateTime data;
 	private boolean ativa;
-	private Produto produto;
 	private Responsavel responsavel;
+	private Set<Produto> produtos;
 
-	public Produto getProduto() {
-		return produto;
-	}
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
-	}
-
-	public Responsavel getResponsavel() {
-		return responsavel;
-	}
-
-	public void setResponsavel(Responsavel responsavel) {
+	public Biblioteca(Responsavel responsavel) {
 		this.responsavel = responsavel;
+		this.data = LocalDateTime.now();
+		}
+
+	@Override
+	public String toString() {
+		return "Descrição :" + descricao + ";" + "Data de criação :" + data + ";"+ "Ativa :" + isAtiva() +  "Responsavel :" + responsavel +  "Qtd de produtos :" + produtos.size();
+	}
+
+	@Override
+	public void impressao() {
+		System.out.println("#Biblioteca");
+		System.out.println(this);
+
+	}
+
+
+	public Set<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(Set<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 	public String getDescricao() {
@@ -50,18 +62,6 @@ public class Biblioteca implements IPrinter{
 
 	public void setAtiva(boolean ativa) {
 		this.ativa = ativa;
-	}
-	
-	@Override
-	public String toString() {
-		return descricao + ";" + data + ";" + isAtiva();
-	}
-
-	@Override
-	public void impressao() {
-		System.out.println("#Biblioteca");
-		System.out.println(this);
-		
 	}
 
 }

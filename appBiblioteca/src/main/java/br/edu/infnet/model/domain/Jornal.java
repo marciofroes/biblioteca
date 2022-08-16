@@ -28,8 +28,8 @@ public class Jornal extends Produto {
 	}
 
 
-	public Jornal(String nome, String formato, float valor) {
-		super(nome, formato, valor);
+	public Jornal(String nome, String formato, float valor, int codigo) {
+		super(nome, formato, valor,  codigo);
 	}
 
 	public String getEdicao() {

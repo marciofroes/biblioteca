@@ -1,5 +1,7 @@
 package br.edu.infnet.model.domain;
 
+import java.util.Objects;
+
 import br.edu.infnet.appBiblioteca.interfaces.IPrinter;
 
 public abstract class Produto implements IPrinter {
@@ -7,12 +9,14 @@ public abstract class Produto implements IPrinter {
 	private String nome;
 	private String formato;
 	private float valor;
+	private int codigo;
 	
-	public Produto(String nome, String formato, float valor) {
+	public Produto(String nome, String formato, float valor, int codigo) {
 		super();
 		this.nome = nome;
 		this.formato = formato;
 		this.valor = valor;
+		this.codigo = codigo;
 	}
 	
 	
@@ -22,7 +26,7 @@ public abstract class Produto implements IPrinter {
 	
 	@Override
 	public String toString() {
-		return nome + ";" + formato + ";" + valor;
+		return nome + " ; " + formato + " ; " + valor + " ; " + codigo;
 	}
 	
 
@@ -59,6 +63,39 @@ public abstract class Produto implements IPrinter {
 	public void setValor(float valor) {
 		this.valor = valor;
 	}
+
+
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigo);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		Produto other = (Produto) obj;
+		return codigo == other.codigo;
+	}
+	
+	
 
 
 }

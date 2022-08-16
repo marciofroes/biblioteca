@@ -16,24 +16,21 @@ public class LivroTeste implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("#Livro");
 		
-		Livro l1 = new Livro("Java Efetivo", "Digital", 50);
+		Livro l1 = new Livro("Java Efetivo", "Digital", 50, 111);
 		l1.setAutor("Joshua Bloch");
 		l1.setDisponivel(true);
-		System.out.println(l1);
 		
 		 AppImpressao.relatorio("Inclusao Livro Java Efetivo",l1);
 		
-		Livro l2 = new Livro("Codigo Limpo", "Fisico", 20);
+		Livro l2 = new Livro("Codigo Limpo", "Fisico", 20, 1111);
 		l2.setAutor("Martin");
 		l2.setDisponivel(true);
-		System.out.println(l2);
 		
 		 AppImpressao.relatorio("Inclusao livro Codigo Limpo",l2);
 		
-		Livro l3 = new Livro("Java-OO", "Fisico", 120);
+		Livro l3 = new Livro("Java-OO", "Fisico", 120,3333);
 		l3.setAutor("Prof. Elberth");
 		l3.setDisponivel(true);
-		System.out.println(l3);
 		
 		 AppImpressao.relatorio("Inclusao livro Java-OO",l2);
 		
