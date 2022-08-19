@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -30,31 +31,35 @@
 </nav>
 
 
-	  <h3>Classe: Jornal</h3>	              
+	  <h3>Cadastro de Livros</h3>	              
 	  <table class="table table-striped">
 	    <thead>
 	      <tr>
-	        <th>Edição Especial</th>
-	        <th>Edição</th>
-	        <th>Tema</th>
+	      <th>ID</th>
+	      	<th>Categoria</th>
+	      	<th>Formato</th>
+	      	<th>Valor</th>
+	      	<th>Código</th>
+	        <th>Autor</th>
+	        <th>Titulo</th>
+	        <th>Disponivel</th>
+	        <th></th>
 	      </tr>
 	    </thead>
 	    <tbody>
+	    <c:forEach var="livro" items="${listagem}">
 	      <tr>
-	        <td>True</td>
-	        <td>Fevereiro</td>
-	        <td>Campeonato Brasileiro</td>
+	      <td>${livro.id}</td>
+	        <td>${livro.nome}</td>
+	        <td>${livro.formato}</td>
+	        <td>${livro.valor}</td>
+	        <td>${livro.codigo}</td>
+	        <td>${livro.autor}</td>
+	        <td>${livro.titulo}</td>
+	        <td>${livro.disponivel}</td>
+	        <td><a href="/livro/${livro.id}/excluir">excluir</a></td>
 	      </tr>
-	      <tr>
-	        <td>False</td>
-	        <td>Campeonato Brasileiro</td>
-	        <td>Campeonato Espanhol</td>
-	      </tr>
-	      <tr>
-	        <td>False</td>
-	        <td>O Futebol</td>
-	        <td>Copa do Mundo</td>
-	      </tr>
+	      </c:forEach>
 	        </tbody>
 	  </table>
 	

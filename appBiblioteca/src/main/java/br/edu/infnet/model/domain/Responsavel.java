@@ -4,9 +4,10 @@ import br.edu.infnet.appBiblioteca.interfaces.IPrinter;
 
 public class Responsavel implements IPrinter {
 
-	public String nome;
-	public String cpf;
-	public String email;
+	private Integer id;
+	private String nome;
+	private String cpf;
+	private String email;
 	
 	public Responsavel(String cpf, String email, String nome) {
 		this.cpf = cpf;
@@ -23,6 +24,14 @@ public class Responsavel implements IPrinter {
 	public void impressao() {
 		System.out.println("#Responsavel");
 		System.out.println(this);
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 

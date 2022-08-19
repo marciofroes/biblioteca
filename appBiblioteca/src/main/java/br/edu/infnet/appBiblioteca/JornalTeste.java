@@ -4,6 +4,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.appBiblioteca.controller.JornalController;
 import br.edu.infnet.model.domain.Jornal;
 import br.edu.infnet.model.test.AppImpressao;
 
@@ -22,7 +23,7 @@ public class JornalTeste implements ApplicationRunner {
 		j1.setEdicao("Fevereiro");
 		j1.setTema("Campeonato Brasileiro");
 		
-		AppImpressao.relatorio("Inclusao do Jornal de Fevereiro",j1);
+		JornalController.incluir(j1);
 		
 		Jornal j2 = new Jornal("O Futebol", "Fisico", 10,222);
 		j2.setEdicaoEspecial(true);
@@ -32,7 +33,7 @@ public class JornalTeste implements ApplicationRunner {
 		j2.setValor(5);
 		j2.setFormato("Fisico");
 		
-		AppImpressao.relatorio("Inclusao do Jornal de Março",j2);
+		JornalController.incluir(j2);
 		
 		Jornal j3 = new Jornal("O Futebol", "Fisico", 10,333);
 		j3.setEdicaoEspecial(true);
@@ -42,7 +43,7 @@ public class JornalTeste implements ApplicationRunner {
 		j3.setValor(5);
 		j3.setFormato("Fisico");
 		
-		AppImpressao.relatorio("Inclusao do Jornal de Abril",j3);
+		JornalController.incluir(j3);
 
 	}
 
