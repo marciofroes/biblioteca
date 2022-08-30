@@ -20,7 +20,7 @@ import br.edu.infnet.model.test.AppImpressao;
 public class BibliotecaTeste implements ApplicationRunner {
 
 	@Override
-	public void run(ApplicationArguments args) throws Exception {
+	public void run(ApplicationArguments args)  {
 		System.out.println("#Biblioteca");
 		
 		Jornal j1 = new Jornal("O Futebol", "Fisico", 10,111);
@@ -58,34 +58,50 @@ public class BibliotecaTeste implements ApplicationRunner {
 		listaProdutos1.add(j2);
 		listaProdutos1.add(l2);
 		
-		Responsavel responsavel1 = new Responsavel("111111111111", "teste@gamil.com", "Joao");
-		Responsavel responsavel2 = new Responsavel("222222222222", "blablba@gamil.com", "Pedro");
-		Responsavel responsavel3 = new Responsavel("333333333333", "fulano@gamil.com", "Fulano");
+		Responsavel responsavel1;
+		try {
+			responsavel1 = new Responsavel("111111111111", "teste@gamil.com", "Joao");
+			
+			Biblioteca b1 = new Biblioteca(responsavel1);
+			b1.setAtiva(true);
+			b1.setDescricao("Biblioteca de variedades");
+			b1.setProdutos(listaProdutos1);
+			
+			AppImpressao.relatorio("Biblioteca :", b1);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		Responsavel responsavel2;
+		try {
+			responsavel2 = new Responsavel("222222222222", "blablba@gamil.com", "Pedro");
+			
+			Set<Produto> listaProdutos2 = new HashSet<>();
+			listaProdutos2.add(r1);
+			listaProdutos2.add(l2);
+			
+			
+			Biblioteca b2 = new Biblioteca(responsavel2);
+			b2.setAtiva(true);
+			b2.setDescricao("Biblioteca online");
+			b2.setProdutos(listaProdutos2);
+			AppImpressao.relatorio("Biblioteca :", b2);
+			
+		} catch (Exception e) {
+			e.getMessage();
+		}
 		
-		Biblioteca b1 = new Biblioteca(responsavel1);
-		b1.setAtiva(true);
-		b1.setDescricao("Biblioteca de variedades");
-		b1.setProdutos(listaProdutos1);
-		
-		AppImpressao.relatorio("Biblioteca :", b1);
-		
-		Set<Produto> listaProdutos2 = new HashSet<>();
-		listaProdutos2.add(r1);
-		listaProdutos2.add(l2);
-		
-		Biblioteca b2 = new Biblioteca(responsavel2);
-		b2.setAtiva(true);
-		b2.setDescricao("Biblioteca online");
-		b2.setProdutos(listaProdutos2);
-		
-		AppImpressao.relatorio("Biblioteca :", b2);
-		
-		Biblioteca b3 = new Biblioteca(responsavel3);
-		b3.setAtiva(true);
-		b3.setDescricao("Biblioteca de esportes");
-		b3.setProdutos(listaProdutos1);
-		
-		AppImpressao.relatorio("Biblioteca :", b3);
+		Responsavel responsavel3;
+		try {
+			responsavel3 = new Responsavel("333333333333", "fulano@gamil.com", "Fulano");
+			Biblioteca b3 = new Biblioteca(responsavel3);
+			b3.setAtiva(true);
+			b3.setDescricao("Biblioteca de esportes");
+			b3.setProdutos(listaProdutos1);
+			
+			AppImpressao.relatorio("Biblioteca :", b3);
+		} catch (Exception e) {
+			e.getMessage();
+		}
 		
 		
 		

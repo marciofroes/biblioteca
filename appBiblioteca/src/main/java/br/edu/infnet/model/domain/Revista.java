@@ -2,16 +2,22 @@ package br.edu.infnet.model.domain;
 
 import java.util.Date;
 
+import br.edu.infnet.model.exceptions.ProdutoIndisponivelException;
+
 public class Revista extends Produto {
 
 	private String titulo;
 	private String edicaoEspecial;
 	private Date dataPublicacao;
-	private boolean disponivel;
+	
 	
 
 	@Override
-	public float calcularEmprestimo() {
+	public float calcularEmprestimo() throws ProdutoIndisponivelException {
+		if (!isDisponivel()) {
+			throw new ProdutoIndisponivelException("Produto indisponível ");
+		}
+		
 		float valorEdicao = 10;
 		return  getValor() + valorEdicao ;
 	}
@@ -38,17 +44,11 @@ public class Revista extends Produto {
 	public void setDataPublicacao(Date dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
 	}
-	public boolean isDisponivel() {
-		return disponivel;
-	}
-	public void setDisponivel(boolean disponivel) {
-		this.disponivel = disponivel;
-	}
 	
 
 	@Override
 	public String toString() {
-		return edicaoEspecial + " ; " +  titulo + " ; " + disponivel + super.toString();
+		return edicaoEspecial + " ; " +  titulo + " ; " + isDisponivel() + super.toString();
 	}
 	
 	@Override

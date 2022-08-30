@@ -3,6 +3,8 @@ package br.edu.infnet.model.domain;
 import java.util.Objects;
 
 import br.edu.infnet.appBiblioteca.interfaces.IPrinter;
+import br.edu.infnet.model.exceptions.ProdutoDescotinuadoException;
+import br.edu.infnet.model.exceptions.ProdutoIndisponivelException;
 
 public abstract class Produto implements IPrinter {
 
@@ -11,6 +13,7 @@ public abstract class Produto implements IPrinter {
 	private String formato;
 	private float valor;
 	private int codigo;
+	private boolean disponivel;
 	
 	public Produto(String nome, String formato, float valor, int codigo) {
 		super();
@@ -20,10 +23,7 @@ public abstract class Produto implements IPrinter {
 		this.codigo = codigo;
 	}
 	
-	
-	
-	public abstract float calcularEmprestimo();
-
+	public abstract float calcularEmprestimo() throws ProdutoIndisponivelException, ProdutoDescotinuadoException;
 	
 	@Override
 	public String toString() {
@@ -106,6 +106,14 @@ public abstract class Produto implements IPrinter {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public boolean isDisponivel() {
+		return disponivel;
+	}
+
+	public void setDisponivel(boolean disponivel) {
+		this.disponivel = disponivel;
 	}
 	
 	

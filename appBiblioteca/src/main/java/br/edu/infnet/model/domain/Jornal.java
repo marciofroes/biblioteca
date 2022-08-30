@@ -1,5 +1,7 @@
 package br.edu.infnet.model.domain;
 
+import br.edu.infnet.model.exceptions.ProdutoIndisponivelException;
+
 public class Jornal extends Produto {
 
 	private boolean edicaoEspecial;
@@ -7,7 +9,10 @@ public class Jornal extends Produto {
 	private String tema;
 	
 	@Override
-	public float calcularEmprestimo() {
+	public float calcularEmprestimo() throws ProdutoIndisponivelException {
+		if (!isDisponivel()) {
+			throw new ProdutoIndisponivelException("Jornal indisponível!");
+		}
 		
 		float valorEdicao = edicaoEspecial ? 22 : 2;   
 		return getValor() + valorEdicao;

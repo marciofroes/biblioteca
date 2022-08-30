@@ -9,7 +9,15 @@ public class Responsavel implements IPrinter {
 	private String cpf;
 	private String email;
 	
-	public Responsavel(String cpf, String email, String nome) {
+	public Responsavel(String cpf, String email, String nome) throws Exception {
+		if (cpf == null) {
+			throw new Exception("Não é possível aceitar CPF nulo");
+		}
+		
+		if (cpf.isEmpty()) {
+			throw new Exception("Não é possível aceitar CPF sem preenchimento");
+		}
+		
 		this.cpf = cpf;
 		this.email = email;
 		this.nome = nome;
