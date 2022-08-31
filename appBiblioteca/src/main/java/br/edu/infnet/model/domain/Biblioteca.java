@@ -12,7 +12,7 @@ public class Biblioteca implements IPrinter {
 	private boolean ativa;
 	private Responsavel responsavel;
 	private Set<Produto> produtos;
-
+	private Integer id; 
 
 	public Biblioteca(Responsavel responsavel) {
 		this.responsavel = responsavel;
@@ -62,6 +62,14 @@ public class Biblioteca implements IPrinter {
 
 	public void setAtiva(boolean ativa) {
 		this.ativa = ativa;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }
