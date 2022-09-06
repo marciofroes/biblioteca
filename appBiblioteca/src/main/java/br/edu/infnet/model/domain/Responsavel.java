@@ -25,7 +25,7 @@ public class Responsavel implements IPrinter {
 	
 	@Override
 	public String toString() {
-		return nome + ";" + cpf + ";" + email;
+		return getNome() + ";" + getCpf() + ";" + getEmail();
 	}
 
 	@Override
@@ -40,6 +40,18 @@ public class Responsavel implements IPrinter {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public String getEmail() {
+		return email;
 	}
 	
 

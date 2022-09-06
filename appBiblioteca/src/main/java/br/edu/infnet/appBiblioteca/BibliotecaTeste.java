@@ -1,7 +1,6 @@
 package br.edu.infnet.appBiblioteca;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
@@ -51,7 +50,7 @@ public class BibliotecaTeste implements ApplicationRunner {
 		
 		Revista r1 = new Revista("Fofacando", "Digital",10,333);
 		r1.setTitulo("Artistas no flagra");
-		r1.setEdicao("Janeiro");
+		r1.setEdicaoEspecial("Janeiro");
 		r1.setDataPublicacao(new  Date());
 		r1.setDisponivel(true);
 		
@@ -80,8 +79,8 @@ public class BibliotecaTeste implements ApplicationRunner {
 							biblioteca.setAtiva(Boolean.valueOf(campos[3]));
 							biblioteca.setDescricao(campos[4]);
 							biblioteca.setProdutos(listaProdutos1);
-							
 							BibliotecaController.incluir(biblioteca);
+							linha = leitura.readLine();
 						} catch (Exception e) {
 							e.getMessage();
 						}

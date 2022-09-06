@@ -21,7 +21,7 @@ public class Biblioteca implements IPrinter {
 
 	@Override
 	public String toString() {
-		return "Descrição :" + descricao + ";" + "Data de criação :" + data + ";"+ "Ativa :" + isAtiva() +  "Responsavel :" + responsavel +  "Qtd de produtos :" + produtos.size();
+		return "Descrição :" + descricao + ";" + "Data de criação :" + data + ";"+ "Ativa :" + isAtiva() +  "Responsavel :" + getResponsavel() +  "Qtd de produtos :" + produtos.size();
 	}
 
 	@Override
@@ -70,6 +70,10 @@ public class Biblioteca implements IPrinter {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Responsavel getResponsavel() {
+		return responsavel;
 	}
 
 }

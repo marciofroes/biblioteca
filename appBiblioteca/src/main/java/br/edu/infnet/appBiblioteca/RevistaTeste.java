@@ -23,7 +23,7 @@ public class RevistaTeste implements ApplicationRunner {
 		
 		Revista r1 = new Revista("Fofacando", "Digital",10,1111);
 		r1.setTitulo("Artistas no flagra");
-		r1.setEdicao("Janeiro");
+		r1.setEdicaoEspecial("Janeiro");
 		r1.setDataPublicacao(new  Date());
 		r1.setDisponivel(true);
 		try {
@@ -35,7 +35,7 @@ public class RevistaTeste implements ApplicationRunner {
 		
 		Revista r2 = new Revista("Quatro Rodas", "Fisica", 14,2222);
 		r2.setTitulo("Melhores 4x4");
-		r2.setEdicao("Abril");
+		r2.setEdicaoEspecial("Abril");
 		r2.setDataPublicacao(new  Date());
 		r2.setDisponivel(true);
 		try {
@@ -47,7 +47,7 @@ public class RevistaTeste implements ApplicationRunner {
 		
 		Revista r3 = new Revista("A Política", "Fisica", 11,33333);
 		r3.setTitulo("Eleições 2022");
-		r3.setEdicao("Agosto");
+		r3.setEdicaoEspecial("Agosto");
 		r3.setDataPublicacao(new  Date());
 		r3.setDisponivel(true);
 		try {
@@ -59,7 +59,7 @@ public class RevistaTeste implements ApplicationRunner {
 		
 		Revista r4 = new Revista("Duas Dodas", "Fisica", 11,33333);
 		r4.setTitulo("Lanaçemtos 2022");
-		r4.setEdicao("Agosto");
+		r4.setEdicaoEspecial("Agosto");
 		r4.setDataPublicacao(new  Date());
 		r4.setDisponivel(false);
 		try {

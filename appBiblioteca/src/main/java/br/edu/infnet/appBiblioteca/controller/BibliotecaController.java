@@ -28,7 +28,7 @@ public class BibliotecaController {
 	@GetMapping(value = "/biblioteca/lista")
 	public String telaLista(Model model) {
 		model.addAttribute("listagem", obterLista());
-		return "jornal/lista";
+		return "biblioteca/lista";
 		
 	}
 	

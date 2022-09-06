@@ -30,35 +30,21 @@
 	</nav>
 
 
-	<h3>Cadastramento de Revista</h3>
+	<h3>Cadastramento do usuários</h3>
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>ID</th>
 				<th>Nome</th>
-				<th>Formato</th>
-				<th>Valor</th>
-				<th>Código</th>
-				<th>titulo</th>
-				<th>Edição Especial</th>
-				<th>Data Publicação</th>
-				<th>Disponivel</th>
-				<th></th>
+				<th>Email</th>
+				<th>Senha</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="revista" items="${listagem}">
+			<c:forEach var="usuario" items="${listagem}">
 				<tr>
-					<td>${revista.id}</td>
-					<td>${revista.nome}</td>
-					<td>${revista.formato}</td>
-					<td>${revista.valor}</td>
-					<td>${revista.codigo}</td>
-					<td>${revista.titulo}</td>
-					<td>${revista.edicaoEspecial}</td>
-					<td>${revista.dataPublicacao}</td>
-					<td>${revista.disponivel}</td>
-					<td><a href="/revista/${revista.id}/excluir">excluir</a></td>
+					<td>${usuario.nome}</td>
+					<td>${usuario.email}</td>
+					<td>${usuario.senha}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

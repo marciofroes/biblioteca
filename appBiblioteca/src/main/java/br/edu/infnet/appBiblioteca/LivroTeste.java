@@ -3,7 +3,7 @@ package br.edu.infnet.appBiblioteca;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-import br.edu.infnet.model.test.AppImpressao;
+
 import br.edu.infnet.appBiblioteca.controller.LivroController;
 import br.edu.infnet.model.domain.Livro;
 import br.edu.infnet.model.exceptions.ProdutoDescotinuadoException;

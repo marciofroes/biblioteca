@@ -32,12 +32,7 @@ public class Revista extends Produto {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public String getEdicao() {
-		return edicaoEspecial;
-	}
-	public void setEdicao(String edicao) {
-		this.edicaoEspecial = edicao;
-	}
+	
 	public Date getDataPublicacao() {
 		return dataPublicacao;
 	}
@@ -48,7 +43,7 @@ public class Revista extends Produto {
 
 	@Override
 	public String toString() {
-		return edicaoEspecial + " ; " +  titulo + " ; " + isDisponivel() + super.toString();
+		return getEdicaoEspecial() + " ; " +  titulo + " ; " + isDisponivel() + super.toString();
 	}
 	
 	@Override
@@ -56,5 +51,13 @@ public class Revista extends Produto {
 		System.out.println("#Revista");
 		System.out.println(this);
 		
+	}
+
+	public String getEdicaoEspecial() {
+		return edicaoEspecial;
+	}
+
+	public void setEdicaoEspecial(String edicaoEspecial) {
+		this.edicaoEspecial = edicaoEspecial;
 	}
 }

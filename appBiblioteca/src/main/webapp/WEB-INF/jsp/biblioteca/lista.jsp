@@ -8,7 +8,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 <meta charset="ISO-8859-1">
-<title>AppPedido</title>
+<title>AppBiblioteca</title>
 </head>
 <body>
 	<nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -22,7 +22,7 @@
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/livro/lista">Livro</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/resposanvel/lista">Responsável</a>
+					href="/responsavel/lista">Responsável</a>
 				<li class="nav-item"><a class="nav-link"
 					href="/biblioteca/lista">Biblioteca</a></li>
 			</ul>
@@ -41,7 +41,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach values="biblioteca" items="${listagem}">
+			<c:forEach var="biblioteca" items="${listagem}">
 				<tr>
 					<td>${biblioteca.id}</td>
 					<td>${biblioteca.descricao}</td>

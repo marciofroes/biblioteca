@@ -11,7 +11,7 @@
 <title>AppBiblioteca</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
+	<nav class="navbar navbar-expand-sm bg-light navbar-light">
 		<div class="container-fluid">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link active" href="/">Home</a>
@@ -28,41 +28,27 @@
 			</ul>
 		</div>
 	</nav>
-
-
-	<h3>Cadastramento de Revista</h3>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Nome</th>
-				<th>Formato</th>
-				<th>Valor</th>
-				<th>Código</th>
-				<th>titulo</th>
-				<th>Edição Especial</th>
-				<th>Data Publicação</th>
-				<th>Disponivel</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="revista" items="${listagem}">
-				<tr>
-					<td>${revista.id}</td>
-					<td>${revista.nome}</td>
-					<td>${revista.formato}</td>
-					<td>${revista.valor}</td>
-					<td>${revista.codigo}</td>
-					<td>${revista.titulo}</td>
-					<td>${revista.edicaoEspecial}</td>
-					<td>${revista.dataPublicacao}</td>
-					<td>${revista.disponivel}</td>
-					<td><a href="/revista/${revista.id}/excluir">excluir</a></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	<div class="container mt-3">
+		<h2>Cadastro de usuário</h2>
+		<form action="/responsavel/incluir" method="post">
+		<div class="mb-3 mt-3">
+				<label for="nome">Nome:</label> <input type="text"
+					class="form-control" placeholder="Enter com o seu nome"
+					name="email">
+			</div>
+			<div class="mb-3 mt-3">
+				<label for="email">Email:</label> <input type="email"
+					class="form-control" placeholder="Enter com  o seu e-mail"
+					name="email">
+			</div>
+			<div class="mb-3">
+				<label for="pwd">Password:</label> <input type="password"
+					class="form-control"  placeholder="Enter entre com seu password"
+					name="pswd">
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
 
 </body>
 </html>
