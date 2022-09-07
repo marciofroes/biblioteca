@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.model.domain.Jornal;
 import br.edu.infnet.model.test.AppImpressao;
@@ -45,6 +46,12 @@ public class JornalController {
 		model.addAttribute("listagem", obterLista());
 		return "jornal/lista";
 		
+	}
+	
+	@PostMapping(value = "/jornal/incluir")
+	public String incluisao(Jornal jornal) {
+		incluir(jornal);
+		return "redirect:/";
 	}
 	
 }

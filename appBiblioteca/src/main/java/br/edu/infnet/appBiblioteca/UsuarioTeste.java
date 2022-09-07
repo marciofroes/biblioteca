@@ -27,6 +27,13 @@ public class UsuarioTeste implements ApplicationRunner {
 
 		
 		UsuarioController.incluir(usuario);
+		Usuario usuario1 = new Usuario();
+		usuario1.setEmail("ciclano@gmail.com");
+		usuario1.setSenha("123");
+		usuario1.setNome("Ciclano da Silva");
+
+		
+		UsuarioController.incluir(usuario1);
 	}
 
 }

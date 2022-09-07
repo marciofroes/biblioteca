@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.model.domain.Revista;
 import br.edu.infnet.model.test.AppImpressao;
@@ -45,5 +46,12 @@ public class RevistaController {
 		model.addAttribute("listagem", obterLista());
 		return "revista/lista";
 	}
+	
+	@PostMapping(value = "/revista/incluir")
+	public String incluisao(Revista revista) {
+		incluir(revista);
+		return "redirect:/";
+	}
+	
 
 }

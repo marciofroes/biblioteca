@@ -5,8 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.model.domain.Responsavel;
 import br.edu.infnet.model.test.AppImpressao;
@@ -41,8 +43,16 @@ public class ResponsavelController {
 	
 
 	@GetMapping(value = "/responsavel/lista")
-	public String telaLista() {
+	public String telaLista(Model model) {
+		model.addAttribute("listagem",obterLista());
 		return "responsavel/lista";
 	}
+	
+	@PostMapping(value = "/responsavel/incluir")
+	public String incluisao(Responsavel responsavel) {
+		incluir(responsavel);
+		return "redirect:/";
+	}
+	
 	
 }

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.model.domain.Biblioteca;
 import br.edu.infnet.model.test.AppImpressao;
@@ -41,5 +42,10 @@ public class BibliotecaController {
 		return mapaBiblioteca.values();
 	}
 	
+	@PostMapping(value = "/biblioteca/incluir")
+	public String incluisao(Biblioteca biblioteca) {
+		incluir(biblioteca);
+		return "redirect:/";
+	}
 	
 }

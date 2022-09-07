@@ -11,23 +11,7 @@
 <title>AppBiblioteca</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-light navbar-light">
-		<div class="container-fluid">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link active" href="/">Home</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="/jornal/lista">Jornal</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="/revista/lista">Revista</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="/livro/lista">Livro</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/responsavel/lista">Responsável</a>
-				<li class="nav-item"><a class="nav-link"
-					href="/biblioteca/lista">Biblioteca</a></li>
-			</ul>
-		</div>
-	</nav>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container mt-3">
 		<h2>Stacked form</h2>
 		<form action="/login" method="post">

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.model.domain.Livro;
 import br.edu.infnet.model.test.AppImpressao;
@@ -44,5 +45,12 @@ public class LivroController {
 		model.addAttribute("listagem", obterLista());
 		return "livro/lista";
 	}
+	
+	@PostMapping(value = "/livro/incluir")
+	public String incluisao(Livro livro) {
+		incluir(livro);
+		return "redirect:/";
+	}
+	
 	
 }
