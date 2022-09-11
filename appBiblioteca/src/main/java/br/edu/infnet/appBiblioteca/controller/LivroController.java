@@ -1,9 +1,6 @@
 package br.edu.infnet.appBiblioteca.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,44 +8,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.model.domain.Livro;
-import br.edu.infnet.model.test.AppImpressao;
+import br.edu.infnet.model.service.LivroService;
 
 @Controller
 public class LivroController {
 
-	private static Map<Integer, Livro> mapaLivro = new HashMap<>();
-	private static Integer id = 1;
+	@Autowired
+	private LivroService livroService;
 	
-	
-	public static void incluir(Livro livro) {
-		livro.setId(id++);
-		mapaLivro.put(livro.getId(), livro);
-		AppImpressao.relatorio("Inclusao do livro  :" + livro.getNome() ,livro);
-	}
-	
-	public Collection<Livro> obterLista(){
-		return mapaLivro.values();
-	}
-	
-	public static void excluir(Integer id) {
-		mapaLivro.remove(id);
-	}
 	
 	@GetMapping(value = "livro/{id}/excluir")
 	public String exclusao(@PathVariable Integer id) {
-		excluir(id);
+		livroService.excluir(id);
 		return "redirect:livro/lista";
 	}
 	
 	@GetMapping(value = "/livro/lista")
 	public String telaLista(Model model) {
-		model.addAttribute("listagem", obterLista());
+		model.addAttribute("listagem", livroService.obterLista());
 		return "livro/lista";
 	}
 	
 	@PostMapping(value = "/livro/incluir")
 	public String incluisao(Livro livro) {
-		incluir(livro);
+		livroService.incluir(livro);
 		return "redirect:/";
 	}
 	

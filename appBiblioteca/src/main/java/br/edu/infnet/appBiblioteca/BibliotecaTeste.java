@@ -7,21 +7,24 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appBiblioteca.controller.BibliotecaController;
 import br.edu.infnet.model.domain.Biblioteca;
 import br.edu.infnet.model.domain.Jornal;
 import br.edu.infnet.model.domain.Livro;
 import br.edu.infnet.model.domain.Produto;
 import br.edu.infnet.model.domain.Responsavel;
 import br.edu.infnet.model.domain.Revista;
+import br.edu.infnet.model.service.BibliotecaService;
 
 @Component
 public class BibliotecaTeste implements ApplicationRunner {
 
+	@Autowired
+	private BibliotecaService bibliotecaService;
 	@Override
 	public void run(ApplicationArguments args)  {
 		System.out.println("#Biblioteca");
@@ -79,7 +82,7 @@ public class BibliotecaTeste implements ApplicationRunner {
 							biblioteca.setAtiva(Boolean.valueOf(campos[3]));
 							biblioteca.setDescricao(campos[4]);
 							biblioteca.setProdutos(listaProdutos1);
-							BibliotecaController.incluir(biblioteca);
+							bibliotecaService.incluir(biblioteca);
 							linha = leitura.readLine();
 						} catch (Exception e) {
 							e.getMessage();

@@ -1,16 +1,19 @@
 package br.edu.infnet.appBiblioteca;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appBiblioteca.controller.LivroController;
 import br.edu.infnet.model.domain.Livro;
 import br.edu.infnet.model.exceptions.ProdutoDescotinuadoException;
+import br.edu.infnet.model.service.LivroService;
 
 @Component
 public class LivroTeste implements ApplicationRunner {
-
+	@Autowired
+	private LivroService livroService;
+	
 	@Override
 	public void run(ApplicationArguments args) {
 		System.out.println("#Livro");
@@ -22,7 +25,7 @@ public class LivroTeste implements ApplicationRunner {
 		l1.setDescontinuado(false);
 		try {
 			System.out.println("Calculo de emprestimo :" + l1.calcularEmprestimo());
-			LivroController.incluir(l1);
+			livroService.incluir(l1);
 		} catch (ProdutoDescotinuadoException e) {
 			System.out.println("[ERRO - LIVRO]" + e.getMessage());
 		}
@@ -34,7 +37,7 @@ public class LivroTeste implements ApplicationRunner {
 		l2.setDescontinuado(false);
 		try {
 			System.out.println("Calculo de emprestimo :" + l2.calcularEmprestimo());
-			LivroController.incluir(l2);
+			livroService.incluir(l2);
 		} catch (ProdutoDescotinuadoException e) {
 			System.out.println("[ERRO - LIVRO]" + e.getMessage());
 		}
@@ -46,7 +49,7 @@ public class LivroTeste implements ApplicationRunner {
 		l1.setDescontinuado(true);
 		try {
 			System.out.println("Calculo de emprestimo :" + l3.calcularEmprestimo());
-			LivroController.incluir(l3);
+			livroService.incluir(l3);
 		} catch (ProdutoDescotinuadoException e) {
 			System.out.println("[ERRO - LIVRO]" + e.getMessage());
 		}

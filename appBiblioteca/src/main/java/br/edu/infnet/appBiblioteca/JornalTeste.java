@@ -1,19 +1,20 @@
 package br.edu.infnet.appBiblioteca;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appBiblioteca.controller.JornalController;
 import br.edu.infnet.model.domain.Jornal;
 import br.edu.infnet.model.exceptions.ProdutoIndisponivelException;
-import br.edu.infnet.model.test.AppImpressao;
+import br.edu.infnet.model.service.JornalService;
 
 
 @Component
 public class JornalTeste implements ApplicationRunner {
 
-	
+	@Autowired
+	private JornalService jornalService;
 	
 	@Override
 	public void run(ApplicationArguments args)  {
@@ -26,7 +27,7 @@ public class JornalTeste implements ApplicationRunner {
 		j1.setDisponivel(true);
 		try {
 			System.out.println("Calculo de emprestimo : " + j1.calcularEmprestimo());
-			JornalController.incluir(j1);
+			jornalService.incluir(j1);
 		} catch (ProdutoIndisponivelException e) {
 			System.out.println("[ERROR - JORNAL] " + e.getMessage());
 		}
@@ -41,7 +42,7 @@ public class JornalTeste implements ApplicationRunner {
 		j2.setDisponivel(true);
 		try {
 			System.out.println("Calculo de emprestimo : " + j2.calcularEmprestimo());
-			JornalController.incluir(j2);
+			jornalService.incluir(j2);
 		} catch (ProdutoIndisponivelException e) {
 			System.out.println("[ERROR - JORNAL] " + e.getMessage());
 		}
@@ -56,7 +57,7 @@ public class JornalTeste implements ApplicationRunner {
 		j3.setDisponivel(true);
 		try {
 			System.out.println("Calculo de emprestimo : " + j3.calcularEmprestimo());
-			JornalController.incluir(j3);
+			jornalService.incluir(j3);
 		} catch (ProdutoIndisponivelException e) {
 			System.out.println("[ERROR - JORNAL] " + e.getMessage());
 		}

@@ -1,39 +1,57 @@
 package br.edu.infnet.appBiblioteca;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appBiblioteca.controller.ResponsavelController;
-import br.edu.infnet.appBiblioteca.controller.UsuarioController;
+import br.edu.infnet.model.domain.Biblioteca;
 import br.edu.infnet.model.domain.Responsavel;
 import br.edu.infnet.model.domain.Usuario;
-
-
-
+import br.edu.infnet.model.service.UsuarioService;
 
 @Component
 public class UsuarioTeste implements ApplicationRunner {
 
-	
-	
+	@Autowired
+	private UsuarioService usuarioService;
+
 	@Override
-	public void run(ApplicationArguments args)  {
-		System.out.println("#Usuario");
-		Usuario usuario = new Usuario();
-		usuario.setEmail("fulano@gmail.com");
-		usuario.setSenha("123");
-		usuario.setNome("Fulano da Silva");
+	public void run(ApplicationArguments args) {
 
-		
-		UsuarioController.incluir(usuario);
-		Usuario usuario1 = new Usuario();
-		usuario1.setEmail("ciclano@gmail.com");
-		usuario1.setSenha("123");
-		usuario1.setNome("Ciclano da Silva");
+		String dir = "C:\\projetos\\biblioteca\\";
+		String arq = "usuario.txt";
+		try {
+			try {
 
-		
-		UsuarioController.incluir(usuario1);
+				FileReader fileReader = new FileReader(dir + arq);
+				BufferedReader leitura = new BufferedReader(fileReader);
+				String linha = leitura.readLine();
+				while (linha != null) {
+					String[] campos = linha.split(";");
+					Usuario usuario = new Usuario();
+					try {
+						usuario.setEmail(campos[0]);
+						usuario.setSenha(campos[1]);
+						usuario.setNome(campos[2]);
+						usuarioService.incluir(usuario);
+						linha = leitura.readLine();
+					} catch (Exception e) {
+						e.getMessage();
+					}
+				}
+				leitura.close();
+				fileReader.close();
+			} catch (IOException e) {
+				System.out.println("[ERRO] Erro ao fechar/ler o arquivo!");
+			}
+		} finally {
+			System.out.println("Termino!");
+		}
 	}
 
 }

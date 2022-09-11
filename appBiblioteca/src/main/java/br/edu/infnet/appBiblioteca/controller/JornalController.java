@@ -1,9 +1,6 @@
 package br.edu.infnet.appBiblioteca.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,46 +8,31 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.model.domain.Jornal;
-import br.edu.infnet.model.test.AppImpressao;
+import br.edu.infnet.model.service.JornalService;
 
 @Controller
 public class JornalController {
 	
 
-	private static Map<Integer, Jornal> mapaJornal = new HashMap<>();
-	private static Integer id = 1;
-	
-	public static void incluir(Jornal jornal) {
-		jornal.setId(id++);
-		mapaJornal.put(jornal.getId(), jornal);
-		AppImpressao.relatorio("Inclusao do Jornal de :" + jornal.getEdicao() ,jornal);
-	}
-	
-	public Collection<Jornal> obterLista(){
-		return mapaJornal.values();
-	}
-	
-	public static void excluir(Integer id) {
-		mapaJornal.remove(id);
-	}
-
+@Autowired
+private JornalService jornalService;
 	
 	@GetMapping(value = "jornal/{id}/excluir")
 	public String exclusao(@PathVariable Integer id) {
-		excluir(id);
+		jornalService.excluir(id);
 		return "redirect:jornal/lista";
 	}
 	
 	@GetMapping(value = "/jornal/lista")
 	public String telaLista(Model model) {
-		model.addAttribute("listagem", obterLista());
+		model.addAttribute("listagem", jornalService.obterLista());
 		return "jornal/lista";
 		
 	}
 	
 	@PostMapping(value = "/jornal/incluir")
 	public String incluisao(Jornal jornal) {
-		incluir(jornal);
+		jornalService.incluir(jornal);
 		return "redirect:/";
 	}
 	

@@ -2,19 +2,22 @@ package br.edu.infnet.appBiblioteca;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.appBiblioteca.controller.RevistaController;
 import br.edu.infnet.model.domain.Revista;
 import br.edu.infnet.model.exceptions.ProdutoIndisponivelException;
-import br.edu.infnet.model.test.AppImpressao;
+import br.edu.infnet.model.service.RevistaService;
 
 
 @Component
 public class RevistaTeste implements ApplicationRunner {
 
+
+@Autowired
+private RevistaService revistaService;
 	
 	
 	@Override
@@ -28,7 +31,7 @@ public class RevistaTeste implements ApplicationRunner {
 		r1.setDisponivel(true);
 		try {
 			System.out.println("Calculo de emprestimo : "+ r1.calcularEmprestimo());
-			RevistaController.incluir(r1);
+			revistaService.incluir(r1);
 		} catch (ProdutoIndisponivelException e) {
 			System.out.println("[ERRO - REVISTA]" + e.getMessage());
 		}
@@ -40,7 +43,7 @@ public class RevistaTeste implements ApplicationRunner {
 		r2.setDisponivel(true);
 		try {
 			System.out.println("Calculo de emprestimo : "+ r1.calcularEmprestimo());
-			RevistaController.incluir(r2);
+			revistaService.incluir(r2);
 		} catch (ProdutoIndisponivelException e) {
 			System.out.println("[ERRO - REVISTA]" + e.getMessage());
 		}
@@ -52,7 +55,7 @@ public class RevistaTeste implements ApplicationRunner {
 		r3.setDisponivel(true);
 		try {
 			System.out.println("Calculo de emprestimo : "+ r1.calcularEmprestimo());
-			RevistaController.incluir(r3);
+			revistaService.incluir(r3);
 		} catch (ProdutoIndisponivelException e) {
 			System.out.println("[ERRO - REVISTA]" + e.getMessage());
 		}
@@ -64,7 +67,7 @@ public class RevistaTeste implements ApplicationRunner {
 		r4.setDisponivel(false);
 		try {
 			System.out.println("Calculo de emprestimo : "+ r1.calcularEmprestimo());
-			RevistaController.incluir(r4);
+			revistaService.incluir(r4);
 		} catch (ProdutoIndisponivelException e) {
 			System.out.println("[ERRO - REVISTA]" + e.getMessage());
 		}
