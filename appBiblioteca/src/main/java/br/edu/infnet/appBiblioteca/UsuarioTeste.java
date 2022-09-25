@@ -9,8 +9,6 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.model.domain.Biblioteca;
-import br.edu.infnet.model.domain.Responsavel;
 import br.edu.infnet.model.domain.Usuario;
 import br.edu.infnet.model.service.UsuarioService;
 
